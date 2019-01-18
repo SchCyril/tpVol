@@ -14,13 +14,21 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.TypedQuery;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-import com.sun.istack.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
+
+
 
 @Entity
 @SequenceGenerator(name = "vol_seq")
 
 public class Vol {
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "vol_seq")
 	private Integer id;
@@ -45,6 +53,8 @@ public class Vol {
 
 	@OneToMany(mappedBy = "vol")
 	private List<Reservation> reservations;
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(Vol.class);
 
 	public Vol() {
 
@@ -130,33 +140,33 @@ public class Vol {
 		Vol vol1 = new Vol();
 		Scanner scan = new Scanner(System.in);
 
-		System.out.println("Veuillez renseigner un numéro de vol");
+		LOGGER.trace("Veuillez renseigner un numéro de vol");
 		String str = scan.nextLine();
 		resa1.setNumero(str);
-		System.out.println("Veuillez renseigner le type de l'avion");
+		LOGGER.trace("Veuillez renseigner le type de l'avion");
 		String str1 = scan.nextLine();
 		vol1.setTypeAvion(str1);
-		System.out.println("Veuillez renseigner le nombre de places");
+		LOGGER.trace("Veuillez renseigner le nombre de places");
 		Integer str2 = Integer.valueOf(scan.nextLine());
 		vol1.setNbPlace(str2);
-		System.out.println("Veuillez renseigner la ville de départ");
+		LOGGER.trace("Veuillez renseigner la ville de départ");
 		String str3 = scan.nextLine();
 		vol1.setVilleDepart(str3);
-		System.out.println("Veuillez renseigner la ville d'arrivée");
+		LOGGER.trace("Veuillez renseigner la ville d'arrivée");
 		String str4 = scan.nextLine();
 		vol1.setVilleArrive(str4);
-		// System.out.println("Veuillez renseigner le nombre de places");
+	
 
-		System.out.println("Voulez vous enregistrer ?");
+		LOGGER.trace("Voulez vous enregistrer ?");
 		String str5 = scan.nextLine();
-		System.out.println("test");
+		LOGGER.trace("test");
 		if (str5.equals("oui")) {
 			VolDAO daov = new VolDAO();
-			System.out.println("test");
+			LOGGER.trace("test");
 			ReservationDAO daor = new ReservationDAO();
-			System.out.println("test");
+			LOGGER.trace("test");
 			daor.create(resa1);
-			System.out.println("test");
+			LOGGER.trace("test");
 			daov.create(vol1);
 		}
 
@@ -176,9 +186,9 @@ public class Vol {
 
 		Scanner scan = new Scanner(System.in);
 
-		System.out.println("1) création d'un vols");
-		System.out.println("2) Liste des vols");
-		System.out.println("3) Quitter");
+		LOGGER.trace("1) création d'un vols");
+		LOGGER.trace("2) Liste des vols");
+		LOGGER.trace("3) Quitter");
 		Integer str = scan.nextInt();
 
 		switch (str) {
@@ -186,19 +196,19 @@ public class Vol {
 			Vol.creationVol();
 			break;
 		case 2:
-			System.out.println("Voici la liste des vols");
+			LOGGER.trace("Voici la liste des vols");
 			Vol.listeVol();
 			break;
 		case 3:
-			System.out.println("veuillez saisir un numéro de vol");
+			LOGGER.trace("veuillez saisir un numéro de vol");
 			Integer str2 = Integer.valueOf(scan.nextLine());
 			VolDAO.planeSearch();
 			break;
 		case 4:
-			System.out.println("recherchez votre avion");			
-			System.out.println("Veuillez renseigner la ville de départ");
+			LOGGER.trace("recherchez votre avion");			
+			LOGGER.trace("Veuillez renseigner la ville de départ");
 			String str3 = scan.nextLine();
-			System.out.println("Veuillez renseigner la ville d'arrivée");
+			LOGGER.trace("Veuillez renseigner la ville d'arrivée");
 			String str4 = scan.nextLine();
 //			VolDAO.planeByCity();
 			

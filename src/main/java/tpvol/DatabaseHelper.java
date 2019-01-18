@@ -7,6 +7,10 @@ import javax.persistence.Persistence;
 public class DatabaseHelper {
 
 	private static EntityManagerFactory entityManagerFactory;
+	
+	private DatabaseHelper() {
+	    throw new IllegalStateException("Utility class");
+	  }
 
 	public static EntityManager createEntityManager() {
 		if (entityManagerFactory == null) {
