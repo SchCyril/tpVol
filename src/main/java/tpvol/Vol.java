@@ -201,16 +201,16 @@ public class Vol {
 			break;
 		case 3:
 			LOGGER.trace("veuillez saisir un numéro de vol");
-			Integer str2 = Integer.valueOf(scan.nextLine());
+			Integer.valueOf(scan.nextLine());
 			VolDAO.planeSearch();
 			break;
 		case 4:
 			LOGGER.trace("recherchez votre avion");			
 			LOGGER.trace("Veuillez renseigner la ville de départ");
-			String str3 = scan.nextLine();
+			scan.nextLine();
 			LOGGER.trace("Veuillez renseigner la ville d'arrivée");
-			String str4 = scan.nextLine();
-//			VolDAO.planeByCity();
+			scan.nextLine();
+
 			
 		}
 	}

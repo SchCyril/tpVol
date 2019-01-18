@@ -35,7 +35,6 @@ public class VolDAO {
 		EntityManager em = DatabaseHelper.createEntityManager();
 		TypedQuery<Vol> query = em.createQuery("from User u where u.id =:id", Vol.class);
 		query.setParameter("id", "????");
-		Vol vol = query.getSingleResult();
 
 	}
 	
