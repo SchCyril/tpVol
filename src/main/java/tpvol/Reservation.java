@@ -8,8 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-import com.sun.istack.NotNull;
+
 
 @Entity
 @SequenceGenerator(name = "resa_seq")

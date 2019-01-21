@@ -176,9 +176,9 @@ public class Vol {
 
 		EntityManager em = DatabaseHelper.createEntityManager();
 		TypedQuery<Vol> query = em.createQuery("from Vol", Vol.class);
-		List<Vol> vols = query.getResultList();
+		
 
-		return vols;
+		return query.getResultList();
 
 	}
 
@@ -201,7 +201,7 @@ public class Vol {
 			break;
 		case 3:
 			LOGGER.trace("veuillez saisir un numéro de vol");
-			Integer str1 = scan.nextInt();
+			scan.nextInt();
 			VolDAO.planeSearch();
 			break;
 		case 4:
@@ -210,6 +210,10 @@ public class Vol {
 			scan.nextLine();
 			LOGGER.trace("Veuillez renseigner la ville d'arrivée");
 			scan.nextLine();
+			
+		default:
+			
+			break;
 
 			
 		}

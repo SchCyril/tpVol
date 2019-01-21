@@ -38,12 +38,12 @@ public class VolDAO {
 
 	}
 	
-	public static List<Vol> planeByCity(Vol villeArrive, Vol villeDepart) {
+	public static List<Vol> planeByCity() {
 		EntityManager em = DatabaseHelper.createEntityManager();
 		TypedQuery<Vol> query = em.createQuery("from Vol v where v.villeDepart =:villeDepart and v.villeArrive=:villeArrive" , Vol.class);
-		List<Vol> vols = query.getResultList();
+		
 
-		return vols;
+		return query.getResultList();
 	}
 
 }
