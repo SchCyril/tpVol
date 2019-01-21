@@ -212,7 +212,7 @@ public class Vol {
 			scan.nextLine();
 			
 		default:
-			
+			System.exit(0);
 			break;
 
 			
