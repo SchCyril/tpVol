@@ -210,6 +210,7 @@ public class Vol {
 			scan.nextLine();
 			LOGGER.trace("Veuillez renseigner la ville d'arrivée");
 			scan.nextLine();
+			break;
 			
 		default:
 			System.exit(0);
