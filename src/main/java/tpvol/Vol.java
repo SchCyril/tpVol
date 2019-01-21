@@ -201,7 +201,7 @@ public class Vol {
 			break;
 		case 3:
 			LOGGER.trace("veuillez saisir un numéro de vol");
-			Integer.valueOf(scan.nextLine());
+			Integer str1 = scan.nextInt();
 			VolDAO.planeSearch();
 			break;
 		case 4:
